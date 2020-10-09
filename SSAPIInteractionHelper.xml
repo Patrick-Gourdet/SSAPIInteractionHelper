@@ -1,0 +1,203 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SSAPIInteractionHelper</name>
+    </assembly>
+    <members>
+        <member name="T:SSAPIInteractionHelper.Account.AccountEnum.AccountStatus">
+            <summary>
+            ONBOARDING The account is onboarding.
+            SUBMISSION_FAILED The account application submission failed for some reason.
+            SUBMITTED The account application has been submitted for review.
+            ACCOUNT_UPDATED The account information is being updated.
+            APPROVAL_PENDING The final account approval is pending.
+            ACTIVE The account is active for trading.
+            REJECTED The account application has been rejected
+            </summary>
+            <remarks>
+            This is to query current account standing
+            This emulates exact structure of the C#
+            Alpaca API which would allow to create
+            different query methods using said API
+            </remarks>
+        </member>
+        <member name="M:SSAPIInteractionHelper.Account.IIronAccount.IronOrdersList">
+            Gets account information from Alpaca REST API endpoint.
+        </member>
+        <member name="M:SSAPIInteractionHelper.Account.IronAccount.IronOrdersList">
+            Gets account information from Alpaca REST API endpoint.
+        </member>
+        <member name="M:SSAPIInteractionHelper.Account.IronAccount.IronAccountValue">
+            <summary>
+            GET request for Account information
+            <code>IronFinancials.IronTradeReal.GetAccountAsync(Token)</code>
+            </summary>
+            <returns>IAccount</returns>
+        </member>
+        <member name="M:SSAPIInteractionHelper.Account.IIronFinancials.SetHistoryRequest">
+            TODO NICE TO HAVE ACCOUNT HISTORY REQUEST
+        </member>
+        <member name="T:SSAPIInteractionHelper.Account.IronFinancials">
+            <summary>
+                This is the IronFinancials client library which will be shared throughout the
+                Entire eco system of micro services via import of DLL
+                <code>var foo = Config.Client</code>
+                will return a fully qualified alpaca client with all its attributes
+                for API specifics
+                <see>
+                    <cref>https://docs.alpaca.markets/api-documentation</cref>
+                </see>
+                <returns>name="alpaca client"</returns>
+            </summary>
+        </member>
+        <member name="F:SSAPIInteractionHelper.Account.IronFinancials.IronAccountActivityTypes">
+            <summary>
+            TODO Need orders updater 
+            </summary>
+        </member>
+        <member name="M:SSAPIInteractionHelper.Account.IronFinancials.SetHistoryRequest">
+            TODO NICE TO HAVE ACCOUNT HISTORY REQUEST
+        </member>
+        <member name="P:SSAPIInteractionHelper.Account.IronFinancials._ironlClientPaper">
+            <summary>
+                This is the access to either the paper or live access
+            </summary>
+        </member>
+        <member name="M:SSAPIInteractionHelper.Account.IronFinancials.SetTradingEnvironment">
+            <summary>
+                This is the platform of choice to place bids for stock and holder of the account data
+                <see>
+                    <cref>https://docs.alpaca.markets/api-documentation/</cref>
+                </see>
+            </summary>
+            <remarks>
+                API_BASE_URL =
+                <see>
+                    <cref>https://paper-api.alpaca.markets</cref>
+                </see>
+                API_BASE_URL_LIVE
+                <see>
+                    <cref>https://live-api.alpaca.markets</cref>
+                </see>
+            </remarks>
+        </member>
+        <member name="T:SSAPIInteractionHelper.Account.IronModules.IronOrder">
+            <summary>
+            Local order class emulates the Alpaca model for implementation
+            through a direct connection avoiding the Alpaca API and the lag
+            that comes with it  
+            </summary>
+            <remarks>
+            Not yet implemented as the direct connection using HTTPCLIENT
+            <see cref="!:HttpClientSingleton.cs"/>
+            was my preferred implementation method but it is always nice to
+            have the option.
+            </remarks>
+        </member>
+        <member name="T:SSAPIInteractionHelper.Account.IronModules.IronUserAccount">
+            <summary>
+            Local Account class emulates the Alpaca model for implementation
+            through a direct connection avoiding the Alpaca API and the lag
+            that comes with it  
+            </summary>
+            <remarks>
+            Not yet implemented as the direct connection using HTTPCLIENT
+            <see cref="!:HttpClientSingleton.cs"/>
+            was my preferred implementation method but it is always nice to
+            have the option.
+            </remarks>
+        </member>
+        <member name="M:SSAPIInteractionHelper.Account.IIronOrderAccess.CloseAllOrders">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SSAPIInteractionHelper.Account.IIronOrderAccess.SubmitOrder(System.Int32,System.Decimal,Alpaca.Markets.OrderSide,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="quantity"></param>
+            <param name="price"></param>
+            <param name="side"></param>
+            <param name="ticker"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SSAPIInteractionHelper.Account.IIronOrderAccess.ClosePositionAtMarket">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:SSAPIInteractionHelper.Account.IronOrderAccess">
+            <summary>
+            
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:SSAPIInteractionHelper.Account.IronOrderAccess.SubmitOrder(System.Int32,System.Decimal,Alpaca.Markets.OrderSide,System.String)" -->
+        <member name="T:SSAPIInteractionHelper.Account.TickerCache">
+            <summary>
+            Ticker cache to minimize the database calls
+            </summary>
+        </member>
+        <member name="P:SSAPIInteractionHelper.Account.TickerCache.Ticker">
+            <summary>
+            This is a thread safe collection of tickers due to multiple api access points
+            </summary>
+        </member>
+        <member name="M:SSAPIInteractionHelper.Account.TickerCache.Update">
+            TODO update tickers to the current status
+            TODO Call tickers to save potential database calls
+            <summary>
+            This is called from the controller to set the tickers currently traded;
+            </summary>
+            <param name="tickers"></param>
+        </member>
+        <member name="M:SSAPIInteractionHelper.Account.TickerCache.CacheTickers(System.String[])">
+            <summary>
+            Slightly Rigged but only because there is more functionality coming
+            </summary>
+            <param name="tickers"></param>
+        </member>
+        <member name="F:SSAPIInteractionHelper._AlgoLogic.MeanReversionPaperOnly.symbol">
+            private string API_KEY = "REPLACEME";
+            private string API_SECRET = "REPLACEME"; <see cref="T:SSAPIInteractionHelper.Account.IronFinancials"/>
+        </member>
+        <member name="T:SSAPIInteractionHelper._Helpers.Files">
+            This will be for cacheing the symboles    
+        </member>
+        <member name="T:SSAPIInteractionHelper._Helpers.BackUpCacheActionStorage">
+            <summary>
+            This is the lock to make the reading from the data pipline thread safe for any data type
+            that does not support thread safety 
+            </summary>
+        </member>
+        <member name="F:SSAPIInteractionHelper._Helpers.QueryBuilder.sb">
+             Buy and sell Query string
+            
+        </member>
+        <member name="M:SSAPIInteractionHelper._Helpers.QueryBuilder.Build(System.String)">
+            <summary>
+            The query string uses a Q in the request which is the start of the query
+            you may change this as you see fit, the thoughts where to further obfuscate
+            the query for security and avoidance basic SQL fuzzing techniques.
+            </summary>
+            <param name="query"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SSAPIInteractionHelper._Helpers.QueryBuilderJSON">
+            <summary>
+            The Alpaca API only accepts JSON String for the requests made to buy and sell
+            I have not checked all endpoints yet. Basic calls like Account Info can be made
+            using only the URI string 
+            </summary>
+        </member>
+        <member name="M:SSAPIInteractionHelper._Helpers.QueryBuilderJSON.GetStringLength(System.String)">
+            <summary>
+            NOT FULLY TESTED YET, THE CODE NEEDS TO BE STEP THROUGH TO ASSURE THAT THE DECENT PARSER
+            IS ADDING THE CORRECT VALUES THIS DOES WORK LIKE A CHARM IN THE QUERY BUILDER
+            </summary>
+            <param name="query"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
